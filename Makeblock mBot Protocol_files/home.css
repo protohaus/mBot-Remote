@@ -1,0 +1,152 @@
+/**
+ * 面板A
+ */
+.m-panel-a .u-thumb {
+  margin-bottom: 10px;
+  max-width: 170px;
+  max-height: 170px;
+}
+.m-panel-a .u-thumb a {
+  display: block;
+  position: relative;
+}
+.m-panel-a .u-thumb a:hover .u-title {
+  color: #33c7f2;
+}
+.m-panel-a .u-title {
+  display: block;
+  font-size: 14px;
+  color: #727272;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  right: 8px;
+  left: 8px;
+  bottom: 8px;
+  position: absolute;
+}
+/**
+ * 面板B
+ */
+.m-panel-b {
+  background: #fff;
+}
+.m-panel-b .u-row {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dedede;
+}
+.m-panel-b .u-row:last-child {
+  border-bottom: none;
+}
+.m-panel-b .u-item {
+  margin-bottom: 20px;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .m-panel-b .u-item {
+    margin-bottom: 0;
+  }
+}
+.m-panel-b .u-item a {
+  display: block;
+}
+.m-panel-b .u-item a:hover {
+  background: #e7e7e7;
+}
+/**
+ * 面板C
+ */
+.m-panel-c {
+  background: #f4f4f4;
+}
+.m-panel-c .u-list {
+  padding-top: 10px;
+  padding-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .m-panel-c .u-list{
+    padding-bottom: 58px;
+  }
+}
+.m-panel-c .u-item {
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .m-panel-c .u-item {
+    margin-bottom: 0;
+  }
+}
+/**
+ * 面板D
+ */
+.m-panel-d {
+  padding-bottom: 40px;
+  background: #f4f4f4;
+}
+.m-panel-d .u-item {
+  margin-top: 18px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.m-panel-d .u-item a {
+  display: block;
+}
+.m-panel-d .u-item a:hover {
+  background: #e7e7e7;
+}
+/**
+ * 面板E
+ */
+.m-panel-e .u-row {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e4e4e4;
+}
+.m-panel-e .u-row:last-child {
+  border-bottom: none;
+}
+.m-panel-e .u-cate,
+.m-panel-e .u-item {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.m-panel-e .u-cate a,
+.m-panel-e .u-item a {
+  display: block;
+}
+.m-panel-e .u-cate a:hover,
+.m-panel-e .u-item a:hover {
+  text-decoration: none;
+}
+.m-panel-e .u-cate a:hover .u-title,
+.m-panel-e .u-item a:hover .u-title {
+  color: #33c7f2;
+}
+@media (min-width: 992px) {
+  .m-panel-e .u-cate,
+  .m-panel-e .u-item {
+    margin-bottom: 0;
+  }
+}
+.m-panel-e .u-item {
+  position: relative;
+}
+.m-panel-e .u-item .u-title {
+  display: block;
+  color: #727272;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/**
+ * 面板F
+ */
+.m-panel-f .u-item {
+  margin-bottom: 20px;
+}
+@media (min-width: 992px) {
+  .m-panel-f .u-item {
+    margin-bottom: 0;
+  }
+}

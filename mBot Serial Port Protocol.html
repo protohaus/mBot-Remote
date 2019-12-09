@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        location.href = '/page/unsupport-browser.html';
+    </script>
+    <![endif]-->
+<link rel="stylesheet" href="mBot%20Serial%20Port%20Protocol_files/learn_teach.css">
+    <link href="http://learn.makeblock.com/en/wp-content/themes/makeblock/images/favicon.png" rel="icon">
+    <link rel="stylesheet" href="mBot%20Serial%20Port%20Protocol_files/bootstrap.css">
+    <link rel="stylesheet" href="mBot%20Serial%20Port%20Protocol_files/font-awesome.css">
+    <link rel="stylesheet" href="mBot%20Serial%20Port%20Protocol_files/navigation.css">
+    <link rel="stylesheet" href="mBot%20Serial%20Port%20Protocol_files/main.css">
+    <link rel="stylesheet" href="mBot%20Serial%20Port%20Protocol_files/home.css">
+            <link rel="stylesheet" href="mBot%20Serial%20Port%20Protocol_files/detail.css">
+            <title>mBot Serial Port Protocol – Open-source Arduino Robot Building Platform|Makeblock Learning Resource</title>
+		<script async="" src="mBot%20Serial%20Port%20Protocol_files/analytics.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/learn.makeblock.com\/en\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.19"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="mBot%20Serial%20Port%20Protocol_files/wp-emoji-release.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="https://api.w.org/" href="http://learn.makeblock.com/en/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://learn.makeblock.com/en/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://learn.makeblock.com/en/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="mBot get started" href="http://learn.makeblock.com/en/mbot-get-started/">
+<link rel="next" title="mBot" href="http://learn.makeblock.com/en/mbot/">
+<meta name="generator" content="WordPress 4.5.19">
+<link rel="canonical" href="http://learn.makeblock.com/en/mbot-serial-port-protocol/">
+<link rel="shortlink" href="http://learn.makeblock.com/en/?p=184">
+<link rel="alternate" type="application/json+oembed" href="http://learn.makeblock.com/en/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flearn.makeblock.com%2Fen%2Fmbot-serial-port-protocol%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://learn.makeblock.com/en/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flearn.makeblock.com%2Fen%2Fmbot-serial-port-protocol%2F&amp;format=xml">
+    <script src="mBot%20Serial%20Port%20Protocol_files/jquery.js"></script>
+    <script>
+        $(function (){
+            var $app = $('.swiper-pagination');
+            if ($app.length>0)
+            {
+                var $ap=$('.a-app-software');
+                if($ap.length>0)
+                {
+                    $ap.addClass("active");
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+
+<!--div style="margin: 0 auto; width: 100%;background-color: #FFFAE7;text-align:center;">
+   <a href="http://www.makeblock.com"><img src="http://cdnshop.makeblock.com/a-network/net-monday.jpg" /></a>
+</div-->
+<div class="navigation-container shop-makeblock">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="top-bar-container container">
+            <div class="collapse navbar-collapse" id="topNavbar">
+                <div class="row">
+                    <div class="col-md-3 makeblock-logo-pic">
+                        <a href="http://www.makeblock.com/"><img src="mBot%20Serial%20Port%20Protocol_files/makeblock_logo.png" alt=""></a>
+                    </div>
+                    <div class="col-md-5 nav-container">
+                        <ul class="nav navbar-nav">
+                            <li class="no-padding-left"><a href="http://store.makeblock.com/en" target="_blank">Products</a></li>
+                            <li><a class="a-app-software" href="http://learn.makeblock.com/en/software/" target="_blank">Apps</a></li>
+                            <li><a href="http://openlab.makeblock.com/" target="_blank">Openlab</a></li>
+                            <li><a id="stem-education-a" href="http://store.makeblock.com/stem-education" target="_blank">Educator</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 top-bar-right clearfix">
+                        <div class="search-container pull-left">
+                            <form action="http://learn.makeblock.com/en">
+                                <input type="text" class="u-search-field" name="s">
+                                <input type="submit" class="search-pic" value="">
+                            </form>
+                        </div>
+                        <div class="login-cart-language-container pull-right clearfix">
+                            <div class="login-container pull-left">
+                                <a href="javascript:;" class="sign-in">Sign In</a>
+                                <div class="wrapper-container">
+                                    <a href="http://store.makeblock.com/index.php?route=account/login" target="_blank" class="btn btn-default account">Login</a>
+                                    <a href="http://store.makeblock.com/index.php?route=account/register" target="_blank" class="btn btn-default logout bg-color-d1d1d1">Register</a>
+                                </div>
+
+                            </div>
+                            <div class="language-container pull-left">
+                                <div class="text-container">
+                                    <span>EN</span>
+                                </div>
+
+                                <div class="wrapper-container">
+                                    <a href="http://learn.makeblock.com/en/mbot-serial-port-protocol/" class="btn btn-default">English</a>
+                                    <a href="http://learn.makeblock.com/cn/mbot-serial-port-protocol/" class="btn btn-default">中文</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="sub-nav">
+        <div class="container sub-box">
+            <a href="http://learn.makeblock.com/en/">Home</a>
+            <a href="http://learn.makeblock.com/en/robot-kits/">Robot Kits</a>
+            <a href="http://learn.makeblock.com/en/mechanical-parts/">Mechanical Parts</a>
+            <a href="http://learn.makeblock.com/en/electronics/">Electronic Modules</a>
+            <a href="http://learn.makeblock.com/en/software/">Apps</a>
+            <a href="http://learn.makeblock.com/en/for-developer/">For Developer</a>
+            <a href="http://learn.makeblock.com/en/get-started/">Get Started</a>
+        </div>
+    </div>
+</div>
+<!--/header -->
+<div class="m-wrapper clearfix">
+    <div class="container u-article">
+        <div class="row">
+            <div class="col-md-12">
+                <header class="entry-header">
+                    <h1 class="entry-title">mBot Serial Port Protocol</h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                                    <div class="entry-content">
+                        <p>This article shows a&nbsp;basic instruction 
+format of mBot. You can use some serial port tool to test these 
+instructions on your mBot.</p>
+<p>&nbsp;</p>
+<h2>Upgrade Your mBot’s Firmware</h2>
+<p>The latest version of mBot firmware is V1.20101. You can upgrade your mBot with <a href="http://www.mblock.cc/mblock-software/">the latest mBlock.</a><br>
+Follow the below steps to upgrade:</p>
+<ol>
+<li>1. Open your mBlock, then&nbsp;connect your mBot with&nbsp;computer</li>
+<li>2. “Connect” -&gt; “Serial Port ” -&gt; your device COM number</li>
+<li>3. “Connect” -&gt; “Upgrade Firmware”</li>
+<li>4. When a dialog pops up, just click the “confirm” button and wait till the upgrading process finished</li>
+</ol>
+<p>After upgrading firmware, use the following instructions to test your mBot.</p>
+<h2>Instruction Format</h2>
+<p>&nbsp;</p>
+<div class="struct-item">
+<h4>DC Motor</h4>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>begin_code_1</th>
+<th>begin_code_2</th>
+<th>length</th>
+<th>index</th>
+<th>action</th>
+<th>device</th>
+<th>port</th>
+<th>speed_low</th>
+<th>speed_high</th>
+</tr>
+<tr>
+<td>ff</td>
+<td>55</td>
+<td>06</td>
+<td>00</td>
+<td>02</td>
+<td>0a</td>
+<td>09</td>
+<td>ff</td>
+<td>00</td>
+</tr>
+</tbody>
+</table>
+<p>speed_low = speed&nbsp;&amp; 0xff;<br>
+speed_high = (speed &gt;&gt; 8) &amp; 0xff;<br>
+(“<b>speed</b>” is a&nbsp;number set by your own, ranging from <span style="color: rgb(51, 153, 102); --darkreader-inline-color:#8cd9b3;" data-darkreader-inline-color="">-255</span> to <span style="color: rgb(51, 153, 102); --darkreader-inline-color:#8cd9b3;" data-darkreader-inline-color="">255.</span>)</p>
+<h5>For example:</h5>
+<div class="ex">
+<p>Set left DC&nbsp;motor speed 255:</p>
+<ul>
+<li class="cmd">ff 55 06 60 02 0a <span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">09</span></span><span class="author-131">&nbsp;ff 00</span></li>
+</ul>
+</div>
+<div class="ex">
+<p>Set right DC&nbsp;motor speed 255:</p>
+<ul>
+<li class="cmd">ff 55 06 60 02 0a <span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">0a</span></span><span class="author-131">&nbsp;ff 00</span></li>
+</ul>
+</div>
+</div>
+<div class="struct-item">
+<h4>Buzzer</h4>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>begin_code_1</th>
+<th>begin_code_2</th>
+<th>length</th>
+<th>index</th>
+<th>action</th>
+<th>device</th>
+<th>tone_Low</th>
+<th>tone_High</th>
+<th>beat_Low</th>
+<th>beat_High</th>
+</tr>
+<tr>
+<td>ff</td>
+<td>55</td>
+<td>07</td>
+<td>00</td>
+<td>02</td>
+<td>22</td>
+<td>7b</td>
+<td>00</td>
+<td>fa</td>
+<td>00</td>
+</tr>
+</tbody>
+</table>
+<p>tone_low = <strong><span style="color: rgb(51, 153, 102); --darkreader-inline-color:#8cd9b3;" data-darkreader-inline-color="">tone</span></strong>&amp;0xff;<br>
+tone_high = (<strong><span style="color: rgb(51, 153, 102); --darkreader-inline-color:#8cd9b3;" data-darkreader-inline-color="">tone</span></strong>&gt;&gt;8)&amp;0xff;<br>
+<span style="color: rgb(51, 153, 102); --darkreader-inline-color:#8cd9b3;" data-darkreader-inline-color=""><strong>tone</strong></span>&nbsp;is a number chosen by your own. Here is a list for you to choose the tone value:</p>
+<p style="padding-left: 30px;"><i>“C2”:65, “D2”:73, “E2”:82, “F2”:87, 
+“G2”:98, “A2”:110, “B2”:123, “C3”:131, “D3”:147, “E3”:165, “F3”:175, 
+“G3”:196, “A3”:220, “B3”:247, “C4”:262, “D4”:294, “E4”:330, “F4”:349, 
+“G4”:392, “A4”:440, “B4”:494, “C5”:523, “D5”:587, “E5”:658, “F5”:698, 
+“G5”:784, “A5”:880, “B5”:988, “C6”:1047, “D6”:1175, “E6”:1319, 
+“F6”:1397, “G6”:1568, “A6”:1760, “B6”:1976, “C7”:2093, “D7”:2349, 
+“E7”:2637, “F7”:2794, “G7”:3136, “A7”:3520, “B7”:3951, “C8”:4186</i></p>
+<p><strong>beat_Low</strong> and <strong>beat_high</strong> have separate default values: “fa” and “00”.</p>
+<h5>For example:</h5>
+<div class="ex">
+<p>Play tone C4:</p>
+<ul>
+<li class="cmd">ff 55 07 00 02 22 <span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">7b 00</span></span> <span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">fa 00</span></span></li>
+</ul>
+</div>
+</div>
+<div class="struct-item">
+<h4>Set LED Color</h4>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>begin_code_1</th>
+<th>begin_code_2</th>
+<th>length</th>
+<th>index</th>
+<th>action</th>
+<th>device</th>
+<th>port</th>
+<th>slot</th>
+<th>position</th>
+<th>r</th>
+<th>g</th>
+<th>b</th>
+</tr>
+<tr>
+<td>ff</td>
+<td>55</td>
+<td>09</td>
+<td>00</td>
+<td>02</td>
+<td>08</td>
+<td>07</td>
+<td>02</td>
+<td>00</td>
+<td>0a</td>
+<td>00</td>
+<td>00</td>
+</tr>
+</tbody>
+</table>
+<div><strong>position</strong> has 3 values: 01 represents left LED, 02 represents&nbsp;right LED, and 00 represents&nbsp;both LEDs.</div>
+<h5>For example:</h5>
+<div class="ex">
+<p>Turn both LEDs to red color:</p>
+<ul>
+<li class="cmd">ff 55 09 00 02 08 07 02 00 <span style="color: rgb(255, 102, 0); --darkreader-inline-color:#ff8533;" data-darkreader-inline-color="">0a 00 00</span></li>
+</ul>
+</div>
+</div>
+<div class="struct-item">
+<h4>Read Ultrasonic Sensor Value</h4>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>begin_code_1</th>
+<th>begin_code_2</th>
+<th>length</th>
+<th>index</th>
+<th>action</th>
+<th>device</th>
+<th>port</th>
+</tr>
+<tr>
+<td>ff</td>
+<td>55</td>
+<td>04</td>
+<td>02</td>
+<td>01</td>
+<td>01</td>
+<td>03</td>
+</tr>
+</tbody>
+</table>
+<h5>For example:</h5>
+<div class="ex">
+<p>Send data to get ultrasonic value:</p>
+<ul>
+<li class="cmd"><span class="author-131 font-size-3"><span style="font-size: medium;">ff 55 04 02 01 01 </span></span><span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">03</span></span></li>
+</ul>
+</div>
+<p>The format of data responded by the ultrasonic sensor is:</p>
+<ul>
+<li class="cmd"><span class="author-131 font-size-3"><span style="font-size: medium;">ff 55 02 02 </span></span><span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">23 ac 03 43</span></span><span class="author-131"> 0d 0a</span></li>
+</ul>
+<p>Please pay attention to the highlighted 4 bytes above, you should 
+transform them&nbsp;from “byte” to “int” type separately, then add them 
+together to get the result value, as follow:</p>
+<ul>
+<li class="cmd">result = ( 0x23 &lt;&lt; 24 ) + ( 0xac &lt;&lt; 16 ) + ( 0x03 &lt;&lt; 8 ) + 0x43</li>
+</ul>
+</div>
+<div class="struct-item">
+<h4>Read Light Sensor Value</h4>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>begin_code_1</th>
+<th>begin_code_2</th>
+<th>length</th>
+<th>index</th>
+<th>action</th>
+<th>device</th>
+<th>port</th>
+</tr>
+<tr>
+<td>ff</td>
+<td>55</td>
+<td>04</td>
+<td>05</td>
+<td>01</td>
+<td>03</td>
+<td>03</td>
+</tr>
+</tbody>
+</table>
+<h5>For example:</h5>
+<div class="ex">
+<p>Send data to get light value:</p>
+<ul>
+<li class="cmd"><span class="author-131 font-size-3"><span style="font-size: medium;">ff 55 04 05 01 03 </span></span><span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">03</span></span></li>
+</ul>
+</div>
+<div class="ex">
+<p>The format of data responded by the light sensor is:</p>
+<ul>
+<li class="cmd"><span class="author-131 font-size-3"><span style="font-size: medium;">ff 55 05 02 </span></span><span class="author-131 font-color-8">00 00 40 41&nbsp;<span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">0d 0a</span></span></li>
+</ul>
+<p>The way to get result value is the same as the ultrasonic sensor part.</p>
+</div>
+</div>
+<div class="struct-item">
+<h4>Read Line Follow Sensor</h4>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>begin_code_1</th>
+<th>begin_code_2</th>
+<th>length</th>
+<th>index</th>
+<th>action</th>
+<th>device</th>
+<th>port</th>
+</tr>
+<tr>
+<td>ff</td>
+<td>55</td>
+<td>04</td>
+<td>60</td>
+<td>01</td>
+<td>11</td>
+<td>02</td>
+</tr>
+</tbody>
+</table>
+<h5>For example:</h5>
+<div class="ex">
+<p>Send data to get line follow sensor’s value:</p>
+<ul>
+<li class="cmd"><span class="author-131 font-size-3"><span style="font-size: medium;">ff 55 04 60 01 11 </span></span><span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">02</span></span></li>
+</ul>
+</div>
+<div class="ex">
+<p>The format of data responded by the line follow sensor is:</p>
+<div class="cmd">
+<ul>
+<li><span class="author-131 font-size-3"><span style="font-size: medium;">ff 55 6</span></span><span class="author-131">0 02 </span><span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">00 00 40 40</span></span><span class="author-131"> 0d 0a&nbsp;&nbsp;&nbsp; both led turn on</span></li>
+<li><span class="author-131 font-size-3"><span style="font-size: medium;">ff 55 60 02 </span></span><span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">00 00 00 40</span></span><span class="author-131"> 0d 0a&nbsp;&nbsp;&nbsp; left turn on, right turn off</span></li>
+<li><span class="author-131 font-size-3"><span style="font-size: medium;">ff 55 60 02 </span></span><span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">00 00 80 3f </span></span><span class="author-131">0d 0a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; left turn off, right turn on</span></li>
+<li><span class="author-131 font-size-3"><span style="font-size: medium;">ff 55 60 02 </span></span><span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">00 00 00 00</span></span><span class="author-131"> 0d 0a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; both turn off.</span></li>
+</ul>
+</div>
+<p>The line follow sensor will only return the data of the above 4 stages.</p>
+</div>
+<p>The way to get result value is the same as the ultrasonic sensor part.</p>
+</div>
+<h2>Use mBlock’s serial port tool to test the above instructions:</h2>
+<ol>
+<li>1. Open your mBlock, then&nbsp;connect your mBot with&nbsp;computer</li>
+<li>2. “Connect” -&gt; “Serial Port ” -&gt; your device COM number</li>
+<li>3. “Boards” -&gt; “mBot”. Please make sure you have chosen “mBot” mode</li>
+<li>4. “Edit” -&gt; “Arduino mode” to open serial port tool</li>
+</ol>
+<p>After the above steps, open mBlock’s serial port tool:</p>
+<p><img class="alignnone size-large wp-image-1846" src="mBot%20Serial%20Port%20Protocol_files/11-1024x599.html" alt="1" width="1024" height="599"></p>
+<p>Let’s run the motor instruction for a test.</p>
+<ul>
+<li class="cmd">ff 55 06 60 02 0a <span class="author-131 font-color-8"><span style="color: rgb(218, 101, 10); --darkreader-inline-color:#f7994f;" data-darkreader-inline-color="">09</span></span><span class="author-131">&nbsp;ff 00</span></li>
+</ul>
+<p><img class="alignnone size-large wp-image-1844" src="mBot%20Serial%20Port%20Protocol_files/2-1024x599.html" alt="2" width="1024" height="599"></p>
+<p>Now, see your own motor running? If not, please check the above steps
+ carefully, check whether your mBot has connected to&nbsp;mBlock 
+successfully or not.</p>
+<p><script src="mBot%20Serial%20Port%20Protocol_files/jquery_002.js"></script><script src="mBot%20Serial%20Port%20Protocol_files/bootstrap.js"></script></p>
+                    </div>
+                    
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="http://learn.makeblock.com/en/mbot-get-started/" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">mBot get started</span></a></div><div class="nav-next"><a href="http://learn.makeblock.com/en/mbot/" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">mBot</span></a></div></div>
+	</nav>                            </div>
+        </div>
+    </div>
+</div>
+<!-- footer begin -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- Contact -->
+            <div class="col-md-3 col-sm-6 col-xs-12 footer-column footer-pages">
+                <h4>Company</h4>
+                <ul class="contact-us clearfix">
+                    <li>
+                        <a href="http://www.makeblock.cc/about-us/" target="_blank">About Us</a>
+                    </li>
+                    <li>
+                        <a href="http://www.makeblock.cc/makeblock-in-the-press/" target="_blank">Media Press</a>
+                    </li>
+                    <li>
+                        <a href="http://blog.makeblock.cc/" target="_blank">Blog</a>
+                    </li>
+                    <li>
+                        <a href="http://www.makeblock.cc/distributors/" target="_blank">Distributors</a>
+                    </li>
+                    <!--                        <li>
+                                                <a href="http://www.makeblock.com/index.php?route=information/information&information_id=7" target="_blank">Become a distributor</a>
+                                            </li>-->
+                    <!--<li><a href="javascript:void(0);">Join Us</a></li>-->
+                </ul>
+            </div>
+
+            <!-- Information -->
+            <div class="col-md-3 col-sm-6 col-xs-12 footer-column information">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="http://www.makeblock.cc/help/" target="_blank">FAQ</a></li>
+                    <li><a href="http://www.makeblock.cc/help/#Free" target="_blank">Delivery</a></li>
+                    <li><a href="http://www.makeblock.cc/help/#Technical" target="_blank">Service</a></li>
+                    <!--<li><a href="javascript:void(0);" target="_blank">Privacy & Legal</a></li>-->
+                </ul>
+            </div>
+
+            <!-- Customer Service -->
+            <div class="col-md-3 col-sm-6 col-xs-12 footer-column service">
+
+                <h4 class="news-letter">NewsLetter</h4>
+                <p style="color: rgb(171, 173, 178); --darkreader-inline-color:#b9b4aa;" data-darkreader-inline-color="">Get project ideas &amp; latest news about Makeblock </p>
+                <form id="footerform" action="" class="form-inline">
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="email">
+                    </div>
+                    <div class="form-group clearfix">
+                        <a href="javascript:void(0)" class="submit-email" id="subscribem">Submit</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Extras -->
+            <div class="col-md-3 col-sm-6 col-xs-12 footer-column extras">
+                <!-- social accounts -->
+                <div class="social-accounts">
+                    <a href="https://www.facebook.com/Makeblock" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/Makeblock" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="https://plus.google.com/+Makeblock" target="_blank">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                    <a href="https://www.youtube.com/user/Makeblock" target="_blank">
+                        <i class="fa fa-youtube"></i>
+                    </a>
+                    <a href="https://instagram.com/makeblock/" target="_blank">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </div>
+
+                <!-- address info -->
+                <div class="address-info">
+                    <p class="company">Makeblock Co., Ltd.</p>
+                    <p>Phone/Fax: <span>+86 (0)755-26392228</span></p>
+                    <p>Email: <span>info@makeblock.com</span></p>
+                    <div class="address-table">
+                        <table>
+                            <tbody><tr>
+                                <td>Address:</td>
+                                <td class="address-item">
+                                    3th Floor, Building C3, Nanshan iPark,<br>
+                                    No.1001 Xueyuan Avenue, Nanshan District,<br>
+                                    Shenzhen, Guangdong Province, China
+                                </td>
+                            </tr>
+                            </tbody></table>
+                    </div>
+                    <p>Post Code：<span>518055</span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="copyright clearfix">
+    <div class="background-copyright"></div>
+
+    <div class="background">
+        <div class="shadow"></div>
+        <div class="pattern">
+            <div class="container">
+                <div class="line"></div>
+                <p>© 2013-2019 Makeblock Co., Ltd. All rights reserved.
+                    <a href="http://makeblock.com/privacy-policy" target="_blank" style="text-decoration: underline;">Privacy Policy</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+	<!-- footer end -->
+	<script type="text/javascript" src="mBot%20Serial%20Port%20Protocol_files/learn_teach.js"></script>
+<script src="mBot%20Serial%20Port%20Protocol_files/subscribe.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-71695475-2', {
+      'name':'learn',
+      'anonymizeIp': true,
+      'storage': 'none',
+      'clientId': window.localStorage.getItem('ga_clientId')
+    });
+    ga('create', 'UA-68765072-1', {
+      'name':'all',
+      'anonymizeIp': true,
+      'storage': 'none',
+      'clientId': window.localStorage.getItem('ga_clientId')
+    });
+    
+    ga(function(tracker) {
+      window.localStorage.setItem('ga_clientId', tracker.get('clientId'));
+    });
+    ga('learn.send', 'pageview');
+    ga('all.send', 'pageview');
+</script>
+
+
+</body></html>

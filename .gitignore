@@ -1,3 +1,7 @@
+# Platformio.org files
+.pio
+.vscode
+
 # Prerequisites
 *.d
 
